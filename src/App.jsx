@@ -5,19 +5,26 @@ import store from "./Redux/Store";
 
 function App() {
   const [data, setData] = useState([]);
+  const [toggle, setToggle] = useState(false)
 
   store.subscribe(() => {
     setData(store.getState().data.data);
+    setToggle(true)
   });
+
+  const cleardata = () => {
+    setData([])
+    setToggle(false)
+  }
 
   return (
     <>
       <button onClick={() => store.dispatch(actionProvider())}>
         Fetch Data
       </button>
-      {data.map((item) => {
+      {data.map((item,ind) => {
         return (
-          <div className="div">
+          <div key={ind} className="div">
             <div className="innerDiv">
               <div className="answers">
                 <h1>Name :-</h1> <h2>{item.name}</h2>
@@ -44,7 +51,7 @@ function App() {
           </div>
         );
       })}
-    </>
+      {toggle && <button onClick={cleardata}>Clear Data</button>} </>
   );
 }
 
