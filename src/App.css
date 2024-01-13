@@ -1,0 +1,28 @@
+html,body{
+  background-color:darkslategrey;
+  text-align: center;
+}
+
+button{
+  width: 150px;
+  height: 39px;
+  margin-top: 7%;
+  cursor: pointer;
+}
+
+.div{
+  margin: 5%;
+  padding: 2%;
+  background-color: white;
+}
+
+.innerDiv{
+  text-align: left;
+  width: 50%;
+}
+
+.answers{
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
